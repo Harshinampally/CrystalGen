@@ -64,13 +64,8 @@ kubectl expose deployment mynginx --type=NodePort --port=80 --target-port=80
 kubectl get service mynginx
 kubectl port-forward svc/mynginx 8081:80
 
-
-
-
-
-
-
 docker pull jasonrivers/nagios:latest
 docker run --name nagiosdemo -p 8888:80 jasonrivers/nagios:latest
+localhost:8888
 
 
