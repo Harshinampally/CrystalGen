@@ -1,0 +1,32 @@
+//jenkins using script
+
+pipeline {
+    agent any
+    tools{
+        maven 'MAVEN_HOME'
+    }
+    stages {
+        stage('git repo & clean') {
+            steps {
+                //bat "rmdir  /s /q mavenjava"
+                bat "git clone https://github.com/vam1207/Mavenjava.git"
+                bat "mvn clean -f Mavenjava"
+            }
+        }
+        stage('install') {
+            steps {
+                bat "mvn install -f Mavenjava" 
+            }
+        }
+        stage('test') {
+            steps {
+                bat "mvn test -f Mavenjava"
+            }
+        }
+        stage('package') {
+            steps {
+                bat "mvn package -f Mavenjava"
+            }
+        }
+    }
+}
