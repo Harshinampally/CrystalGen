@@ -54,3 +54,23 @@ sudo docker ps
 sudo docker stop "cont"
 
 
+//minikube
+minikube start
+minikube status
+kubectl get deployments
+kubectl create deployment mynginx --image=nginx
+//kubectl scale deployment mynginx --replicas=4
+kubectl expose deployment mynginx --type=NodePort --port=80 --target-port=80
+kubectl get service mynginx
+kubectl port-forward svc/mynginx 8081:80
+
+
+
+
+
+
+
+docker pull jasonrivers/nagios:latest
+docker run --name nagiosdemo -p 8888:80 jasonrivers/nagios:latest
+
+
